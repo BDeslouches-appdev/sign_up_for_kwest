@@ -18,8 +18,20 @@
 
       <% @recommendations.each do |recommendation| %>
       <tr>
-        <td><%= recommendation.sender.email %></td>
-        <td><%= recommendation.trip.trip_name %></td>
+        <td>
+          <% if recommendation.sender.present? %>
+            <a href="/users/<%= recommendation.sender.id %>">
+              <%= recommendation.sender.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if recommendation.trip.present? %>
+            <a href="/kwest_trips/<%= recommendation.trip.id %>">
+              <%= recommendation.trip.trip_name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= recommendation.body %></td>
         <td><%= recommendation.category %></td>
         <td>
