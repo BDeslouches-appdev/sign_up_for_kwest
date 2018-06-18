@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "kwest_trips#index"
   # Routes for the Recommendation resource:
   # CREATE
   get "/recommendations/new", :controller => "recommendations", :action => "new"
