@@ -20,8 +20,11 @@
         <td><%= sign_up.trip.trip_name %></td>
         <td>
           <a href="/sign_ups/<%= sign_up.id %>" class="btn btn-primary">Show</a>
-          <a href="/sign_ups/<%= sign_up.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_sign_up/<%= sign_up.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == sign_up.kwestee %>
+            <a href="/sign_ups/<%= sign_up.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_sign_up/<%= sign_up.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

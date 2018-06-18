@@ -1,4 +1,14 @@
 class SignUpsController < ApplicationController
+  before_action :current_user_must_be_sign_up_kwestee, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_sign_up_kwestee
+    sign_up = SignUp.find(params[:id])
+
+    unless current_user == sign_up.kwestee
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @sign_ups = SignUp.all
 
