@@ -24,7 +24,7 @@
           Kwestee
         </label>
 
-        <input type="text" id="kwestee_id" name="kwestee_id" placeholder="Kwestee" class="form-control" value="<%= @sign_up.kwestee_id %>">
+        <%= select_tag(:kwestee_id, options_from_collection_for_select(User.all, :id, :email, @sign_up.kwestee_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for trip_id -->
