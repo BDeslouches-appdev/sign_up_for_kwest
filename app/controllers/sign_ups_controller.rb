@@ -10,7 +10,8 @@ class SignUpsController < ApplicationController
   end
 
   def index
-    @sign_ups = SignUp.page(params[:page]).per(10)
+    @q = SignUp.ransack(params[:q])
+    @sign_ups = @q.result(:distinct => true).includes(:kwestee, :trip).page(params[:page]).per(10)
 
     render("sign_ups/index.html.erb")
   end
