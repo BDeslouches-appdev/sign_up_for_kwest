@@ -18,7 +18,7 @@
 
       <% @recommendations.each do |recommendation| %>
       <tr>
-        <td><%= recommendation.sender_id %></td>
+        <td><%= recommendation.sender.email %></td>
         <td><%= recommendation.trip_id %></td>
         <td><%= recommendation.body %></td>
         <td><%= recommendation.category %></td>
