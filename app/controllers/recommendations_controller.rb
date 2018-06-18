@@ -49,8 +49,6 @@ class RecommendationsController < ApplicationController
 
   def update
     @recommendation = Recommendation.find(params[:id])
-
-    @recommendation.sender_id = params[:sender_id]
     @recommendation.trip_id = params[:trip_id]
     @recommendation.body = params[:body]
     @recommendation.category = params[:category]
