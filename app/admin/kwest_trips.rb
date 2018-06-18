@@ -1,4 +1,6 @@
 ActiveAdmin.register KwestTrip do
+
+ permit_params :trip_name, :region, :is_short
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
