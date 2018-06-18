@@ -1,0 +1,54 @@
+<!-- Validation failure messages -->
+<% if @kwest_trip.errors.any? %>
+  <% @kwest_trip.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Kwest Trip #<%= @kwest_trip.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_kwest_trip/<%= @kwest_trip.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for trip_name -->
+      <div class="form-group">
+        <label for="trip_name" class="control-label">
+          Trip name
+        </label>
+
+        <input type="text" id="trip_name" name="trip_name" placeholder="Trip name" class="form-control" value="<%= @kwest_trip.trip_name %>">
+      </div>
+
+      <!-- Label and input for region -->
+      <div class="form-group">
+        <label for="region" class="control-label">
+          Region
+        </label>
+
+        <input type="text" id="region" name="region" placeholder="Region" class="form-control" value="<%= @kwest_trip.region %>">
+      </div>
+
+      <!-- Label and input for is_short -->
+      <div class="checkbox">
+        <label for="is_short">
+          <input type="checkbox" id="is_short" name="is_short" value="1" <%= "checked" if @kwest_trip.is_short %>>
+          Is short
+        </label>
+      </div>
+
+      <button class="btn btn-warning">
+        Update Kwest Trip
+      </button>
+      or
+      <a href="/kwest_trips/<%= @kwest_trip.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
