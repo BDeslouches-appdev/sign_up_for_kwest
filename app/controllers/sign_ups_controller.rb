@@ -47,8 +47,6 @@ class SignUpsController < ApplicationController
 
   def update
     @sign_up = SignUp.find(params[:id])
-
-    @sign_up.kwestee_id = params[:kwestee_id]
     @sign_up.trip_id = params[:trip_id]
 
     save_status = @sign_up.save
